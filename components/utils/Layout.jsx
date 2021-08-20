@@ -1,24 +1,24 @@
 import Footer from "./Footer";
 import TopNavbar from "./TopNavbar";
-import { useMemo } from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useContext, useMemo } from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Container, CssBaseline } from "@material-ui/core";
 import { useRouter } from "next/router";
-import { colors } from "./ThemesColors";
+import { THEME } from "constants/Colors";
+import { AppContext } from "contexts/AppContext";
 
 function Layout({ children }) {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [isDark] = useContext(AppContext);
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          type: prefersDarkMode ? "dark" : "light",
-          primary: colors.primary,
-          secondary: colors.secondary,
+          type: isDark ? "dark" : "light",
+          primary: THEME.primary,
+          secondary: THEME.secondary,
         },
       }),
-    [prefersDarkMode]
+    [isDark]
   );
   const router = useRouter();
   const { pathname } = router;
