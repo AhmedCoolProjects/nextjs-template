@@ -1,8 +1,8 @@
-This branch is for using nextjs with react context, where we ll provide a theming mode based on state in react context api.
+This main branch is for using nextjs with some great styling libraries configured and ready to use.
 
 ## Getting Started
 
-firstly, we ll create a context, then its provider, then wrap our components inside that provider, the get the state of the context using the `useContext` hook from react.
+just start coding with tailwind css and @material-ui/core and @material-ui/icons. and use the custom dir naming: @as => assets folder, @comp => components folder.
 
 ### Used libraries
 
