@@ -28,6 +28,7 @@ function Layout({ children }) {
       <CssBaseline />
       <Container maxWidth="lg">
         {isLogin ? null : <TopNavbar />}
+
         {children}
         <Footer />
       </Container>
