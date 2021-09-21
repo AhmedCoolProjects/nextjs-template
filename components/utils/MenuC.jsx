@@ -1,11 +1,9 @@
 import React from "react";
-import { Menu, MenuItem, ListItemIcon, Fade } from "@material-ui/core";
-import { ExitToAppOutlined } from "@material-ui/icons";
 import Link from "next/link";
+import { Fade, ListItemIcon, Menu, MenuItem } from "@mui/material";
+import { ExitToAppOutlined } from "@mui/icons-material";
 
-// data: {title,href,icon}
-
-function MenuC({ data, open, onClose, anchorEl }) {
+function MenuC({ data, open, onClose, anchorEl, isLogin }) {
   return (
     <Menu
       id="fade-menu"
@@ -13,7 +11,8 @@ function MenuC({ data, open, onClose, anchorEl }) {
       keepMounted
       open={open}
       onClose={onClose}
-      TransitionComponent={Fade}>
+      TransitionComponent={Fade}
+    >
       {data.map((item) => (
         <Link key={item.title} href={item.href} passHref>
           <MenuItem onClick={onClose}>
@@ -22,12 +21,14 @@ function MenuC({ data, open, onClose, anchorEl }) {
           </MenuItem>
         </Link>
       ))}
-      <MenuItem onClick={onClose}>
-        <ListItemIcon>
-          <ExitToAppOutlined fontSize="small" />
-        </ListItemIcon>
-        Log Out
-      </MenuItem>
+      <Link href="/auth" passHref>
+        <MenuItem onClick={() => {}}>
+          <ListItemIcon>
+            <ExitToAppOutlined fontSize="small" />
+          </ListItemIcon>
+          {isLogin ? "Log Out" : "Login"}
+        </MenuItem>
+      </Link>
     </Menu>
   );
 }
