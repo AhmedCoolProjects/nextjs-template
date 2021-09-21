@@ -4,9 +4,9 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>JINA Next.js Template | By Ahmed Bargady</title>
       </Head>
-      HELLO WORLD !
+      <div>HELLO WORLD !</div>
     </div>
   );
 }

@@ -1,36 +1,31 @@
-import { Link, Typography } from "@material-ui/core";
+import { AppContext } from "contexts/AppContext";
+import { useContext } from "react";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <h1 className="text-center text-sm mt-2">
       {"Copyright © "}
-      <Link target="blank_" color="inherit" href="https://ahmedbargady.me">
+      <a
+        target="blank_"
+        href="https://ahmedbargady.me"
+        className="underline font-bold text-sm">
         Jina Cool Projects
-      </Link>{" "}
+      </a>{" "}
       {new Date().getFullYear()}
       {"."}
-    </Typography>
+    </h1>
   );
 }
 
 function Footer() {
+  const [isDark] = useContext(AppContext);
   return (
     <footer
-      className="mt-12 p-12 bg-[#424242]">
-      <Typography
-        color="textSecondary"
-        variant="h6"
-        align="center"
-        gutterBottom>
-        Created with ❤️ By:
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        align="center"
-        color="textSecondary"
-        component="p">
-        Ahmed BARGADY
-      </Typography>
+      className={
+        isDark ? "mt-12 p-12 bg-[#424242]" : "mt-12 p-12 bg-[#eeeeee]"
+      }>
+      <h1 className="text-base text-center">Created with ❤️ By:</h1>
+      <h1 className="text-xl text-center ">Ahmed BARGADY</h1>
       <Copyright />
     </footer>
   );
